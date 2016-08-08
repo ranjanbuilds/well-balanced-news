@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Podcast Randomizer</title>
+	<link href='https://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css'>
+	<!-- font-family: 'Istok Web', sans-serif; -->
+	<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+	<!-- font-family: 'Lora', serif; -->
+	<link rel="stylesheet" href="stylz.css">
+</head>
+<body>
+	<main>
+		<!-- A news sandwhich delivered to you for your walk home. A balanced diet is important, or so They say. -->
+		<div class="please-wait">
+			<p>Please wait a few seconds while we do our magic...</p>
+		</div>
+		<div class="overlay">
+			<form action="" id="startForm">
+				<h2>How long is your walk?</h2>
+				<div class='underline'></div>
+		      	<input type="radio" name="length" value="10" id="length-ten"><label for="length-ten">Ten Minutes</label>
+		      	<input type="radio" name="length" value="20" id="length-twenty"><label for="length-twenty">Twenty Minutes</label>
+		      	<input type="radio" name="length" value="30" id="length-thirty"><label for="length-thirty">Thirty Minutes</label>
+		      	<input type="radio" name="length" value="40" id="length-forty"><label for="length-forty">Forty Minutes</label>
+
+		      	<!--   	Global: Afghanistan(1149), Africa(1126), Asia(1125), Europe(1124), Iraq (1010), Israeli-Palestinian Coverage (1101), Latin America, Middle East, World, World Story of the Day, U.S. -->
+		      	<!--   Politics: Elections(139482413), political data & technology(455776378), political demographics(455778960), politics(1014), politics & pop culture(455779148), politics: fact check(455779263), political: issues(455779709), politics: member stations(455779583)  -->
+		      	<!-- Health: Global Health(1031), Health(1128), Health Care(1027), Medical Treatments(1135), Mental Health(1029) -->
+		      	<!-- Technology: Digital Life(1049), Technology(1019) -->
+		      	<!-- Economies: Business(1006), Business Story of the Day(1095), Economy(1017), Your Money(1018), Planet Money(94427042)-->
+		      	<!-- Environment: environment(1025) -->
+		      	<h2>Pick some global topics:</h2>
+		      	<div class="underline"></div>
+				<input type="checkbox" name="worldy" value="1149, 1126, 1125, 1124, 1010, 1101" id="global"><label for="global">Global</label>
+		      	<input type="checkbox" name="worldy" value="139482413, 455778960, 1014, 455779709" id="politics"><label for="politics">Politics</label>
+		      	<input type="checkbox" name="worldy" value="1031, 1128, 1027, 1135, 1029" id="health"><label for="health">Health</label>
+		      	<input type="checkbox" name="worldy" value="1049, 1019" id="tech"><label for="tech">Tech</label>
+		      	<input type="checkbox" name="worldy" value="1006, 1095, 1017, 1018, 94427042" id="money"><label for="money">Money</label>
+		      	<input type="checkbox" name="worldy" value="1025" id="environment"><label for="environment">Environment</label>
+		      	<h2>Pick some human-centered topics:</h2>
+		      	<div class="underline"></div>
+		      	<input type="checkbox" name="human" value="423302056, 64" id="human-behavior"><label for="human-behavior">Human Behavior</label>
+		      	<input type="checkbox" name="human" value="156490415, 57" id="ideas"><label for="ideas">Ideas</label>
+		      	<input type="checkbox" name="human" value="1015" id="race"><label for="race">Race</label>
+		      	<input type="checkbox" name="human" value="1049, 13, 1022" id="interviews"><label for="interviews">Interviews</label>
+		      	<input type="checkbox" name="human" value="130593764" id="social-bizz"><label for="social-bizz">Social Entreprenuers</label></br>
+				<h2>Pick some lighter topics:</h2>
+				<div class="underline"></div>
+		      	<input type="checkbox" name="light" value="1137, 4467349, 1045, 1138" id="movies"><label for="movies">Movies/TV</label>
+		      	<input type="checkbox" name="light" value="1161, 1034, 1032" id="books"><label for="books">Books</label>
+		      	<input type="checkbox" name="light" value="98679384, 122356178, 92071316, 15667984, 15773266, 487480008" id="music"><label for="music">Music</label>
+		      	<input type="checkbox" name="light" value="1055" id="sports"><label for="sports">Sports</label>
+		      	<input type="checkbox" name="light" value="1132, 1026" id="animals"><label for="animals">Animals and Space</label></br>
+		      	<input class="submit-form" type="submit" value="submit">
+
+	    	</form>
+		</div> <!-- overlay -->
+ 		<div class="podcasts" id="results">
+		    <div class="pod-container">
+		    	<h2>Global Topics</h2>
+		    	<h3>Your Choices:<span class="choicesGlobal"></span></h3>
+		    	<div id="globalPods"></div>
+		    	<p class='cast-time'><strong>Total time: <span class="totalWorldy"></span></strong></p>
+		    </div>
+		    <div class="pod-container">
+		    	<h2>Human Centered</h2>
+		    	<h3>Your Choices:<span class="choicesHuman"></span></h3>
+		    	<div id="humanPods"></div>
+		    	<p class="cast-time"><strong>Total time: <span class="totalHuman"></span></strong></p>
+		    </div>
+	    	<div class="pod-container">
+		    	<h2>The Light Side</h2>
+		    	<h3>Your Choices:<span class="choicesLight"></span></h3>
+		    	<div id="lightPods"></div>
+		    	<p class="cast-time"><strong>Total time: <span class="totalLight"></span></strong></p>
+		    </div>
+
+	    	<!-- <p><strong>Total time: <span class="totalTime"></span></strong></p> -->
+	    </div> <!-- podcasts -->
+	</main>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  	<script src="podcast.js"></script>
+</body>
+</html>
