@@ -5,6 +5,112 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 *, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+div.pod-container {
+	margin-top: 70px;
+}
+
+.podcasts {
+	display: none;
+}
+
+.introduction, .walk, .global_topics, .human_topics, .light_topics {
+	height: 100vh;
+	position:absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #3498db;
+}
+
+.introduction {
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(balancedFood1.jpeg);
+	background-size: cover;
+}
+
+.walk {
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(walk1.jpeg);
+	background-size: cover;
+	background-position: bottom right;
+}
+
+.global_topics {
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(global1.jpeg);
+	background-size: cover;
+	background-position: bottom right;
+}
+
+.human_topics {
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(human1.jpeg);
+	background-size: cover;
+	background-position: bottom right;
+}
+
+.light_topics {
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(light1.jpeg);
+	background-size: cover;
+	background-position: bottom right;
+}
+
+.introduction {
+	z-index:10;
+}
+
+.walk {
+	z-index:9;
+}
+
+.global_topics {
+	z-index:8;
+}
+
+.human_topics {
+	z-index:7;
+}
+
+.light_topics {
+	z-index:6;
+}
+
+.intro_next, .walk_next, .global_next, .human_next {
+		margin: 30px auto;
+		display: block;
+		padding: 5px;
+		background: #fff;
+		width: 100px;
+		font-size: 20px;
+		border: none;
+		color: #34495e;
+		text-transform: uppercase;
+		background-color: #e6da22;
+		font-family: 'Lora', serif;
+		text-align: center;
+		text-shadow: none;
+		cursor: pointer;
+	}
+
+.intro_container2, .choice_container {
+	margin: 100px auto 0px;
+	max-width: 700px;
+	color: #fff;
+	/*background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(balancedFood1.jpeg)*/
+	padding: 20px;
+	text-shadow: 1px 1px 3px #7f8c8d;
+	line-height: 1.5;
+	letter-spacing: 1px;
+	font-size: 16px;
+}
+
+.choice_container input {
+	display: block;
+	margin: 5px 0px;
+}
+
+.intro_container2 .underline {
+	margin: 15px 0 30px 0;
+}
+
+
 audio {
 	display: block;
 }
@@ -17,7 +123,7 @@ body {
 .pod-container {
 	border-bottom: 1px solid #f1c40f;
 	margin: 20px;
-	width: 700px;
+	max-width: 700px;
 	margin: 10px auto;
 }
 
@@ -44,18 +150,21 @@ form input[type='submit'] {
 	background-color: #e6da22;
 	font-family: 'Lora', serif;
 	margin: 50px;
+	cursor: pointer;
 }
 
 form input[type='radio'] + label{
 	font-size: 20px;
 	margin: 0px 30px;
-	font-family: 'Istok Web', sans-serif
+	font-family: 'Istok Web', sans-serif;
+	cursor: pointer;
 }
 
 form input[type='checkbox'] + label{
 	font-size: 20px;
 	margin: 0px 30px;
-	font-family: 'Istok Web', sans-serif
+	font-family: 'Istok Web', sans-serif;
+	cursor: pointer;
 }
 
 form input[type='radio']:checked + label {
@@ -63,6 +172,7 @@ form input[type='radio']:checked + label {
 	padding: 5px;
 	border: 2px solid #e6da22;
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 form input[type='checkbox']:checked + label {
@@ -70,11 +180,12 @@ form input[type='checkbox']:checked + label {
 	padding: 5px;
 	border: 2px solid #e6da22;
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 .underline {
 	margin: 15px auto 30px auto;
-	width:300px;
+	max-width:300px;
 	border-bottom: 1px solid #e6da22 ;
 	padding: 0px;
 }
@@ -96,11 +207,11 @@ form h2 {
 
 .descriptionTitle {
 	color: #d35400;
-	margin: 30px 0px 5px 0px;
+	margin: 40px 0px 5px 0px;
 }
 
 .description {
-	margin: 10px 0px;
+	margin: 20px 0px;
 }
 
 audio {
@@ -114,7 +225,7 @@ audio {
 
 .cast-time {
 	font-size: 20px;
-	margin: 15px 0px 5px 0px;
+	margin: 25px 0px 5px 0px;
 	color: #d35400;
 }
 
@@ -130,10 +241,12 @@ audio {
 	text-align: center;
 	margin: 0 auto;
 	display:none;
+	z-index: 10;
 }
 
 .please-wait p {
 	margin-top: 300px;
+	z-index: 10;
 }
 
 .lets-doit {
@@ -159,3 +272,71 @@ audio {
 	display: none;
 }*/
 
+@media all and (max-width: 450px) {
+
+	.overlay {
+		/*background-color: #3498db;
+		width: 100%;*/
+		height: 600px;
+		/*padding: 1px;*/
+	}
+
+	.introduction, .walk, .global_topics, .human_topics, .light_topics {
+		height: 600px;
+		/*position:absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background: #3498db;*/
+	}
+
+	.pod-container {
+		border-bottom: 1px solid #f1c40f;
+		margin: 20px;
+		max-width: 320px;
+		margin: 10px auto;
+	}
+	.intro_container2, .choice_container {
+		margin: 20px auto 0px;
+		/*max-width: 700px;
+		color: #fff;
+		background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(balancedFood1.jpeg)
+		padding: 20px;
+		text-shadow: 1px 1px 3px #7f8c8d;
+		line-height: 1.5;
+		letter-spacing: 1px;
+		font-size: 16px;*/
+	}
+
+	.intro_container h1 {
+		font-size: 25px;
+	}
+
+	.choice_container h2 {
+		font-size: 25px;
+	}
+	
+
+	.intro_next, .walk_next, .global_next, .human_next {
+		margin: 15px auto;
+		/*display: block;
+		padding: 5px;
+		background: #fff;
+		width: 100px;
+		font-size: 20px;
+		border: none;
+		color: #34495e;
+		text-transform: uppercase;
+		background-color: #e6da22;
+		font-family: 'Lora', serif;
+		text-align: center;
+		text-shadow: none;*/
+	}
+
+	.please-wait p {
+		margin-top: 200px;
+		z-index: 10;
+	}
+
+}

@@ -21,7 +21,7 @@ function shuffle(array) {
 };
 
 podApp.getWorldy = function (query) {
-	$.ajax({
+	return $.ajax({
 		url: podApp.apiUrl,
 		method: 'GET',
 		dataType: 'JSON',
@@ -35,14 +35,14 @@ podApp.getWorldy = function (query) {
 			action: 'Or'
 		}
 	})
-	.then(function(e) {
-		console.log(e);
-		podApp.displayWorldy(e);
-	});
+	// .then(function(e) {
+	// 	console.log(e);
+	// 	podApp.displayWorldy(e);
+	// });
 };
 
 podApp.getHuman = function (query) {
-	$.ajax({
+	return $.ajax({
 		url: podApp.apiUrl,
 		method: 'GET',
 		dataType: 'JSON',
@@ -56,13 +56,13 @@ podApp.getHuman = function (query) {
 			action: 'Or'
 		}
 	})
-	.then(function(e) {
-		podApp.displayHuman(e);
-	});
+	// .then(function(e) {
+	// 	podApp.displayHuman(e);
+	// });
 };
 
 podApp.getLight = function (query) {
-	$.ajax({
+	return $.ajax({
 		url: podApp.apiUrl,
 		method: 'GET',
 		dataType: 'JSON',
@@ -77,9 +77,9 @@ podApp.getLight = function (query) {
 		}
 
 	})
-	.then(function(e) {
-		podApp.displayLight(e);
-	});
+	// .then(function(e) {
+	// 	podApp.displayLight(e);
+	// });
 };
 
 podApp.displayWorldyRandom = [];
@@ -128,8 +128,10 @@ podApp.displayWorldy = function (stories) {
 		var seconds = (time - minutes * 60);
 		$('.totalWorldy').html(`${minutes}:${seconds}`);
 	}
+
 	realTime(timeTotal);
 	totalTime.push(timeTotal);
+
  
 } //display worldy
 
@@ -235,12 +237,35 @@ totalTime = [];
 
 podApp.init = function() {
 
+	$('.intro_next').on('click', function() {
+		$('.introduction').hide();
+	})
+
+	$('.walk_next').on('click', function() {
+		$('.walk').css('z-index', 0)
+	})
+
+	$('.global_next').on('click', function() {
+		$('.global_topics').css('z-index', -1);
+	})
+
+	$('.human_next').on('click', function() {
+		$('.human_topics').css('z-index', -2);
+	})
+
+	// $('.light_next').on('click', function() {
+	// 	$('.light_topics').hide();
+	// })
+
+
 	$('#startForm').on('submit', function(e) {
 		e.preventDefault();
 
 		var namedWorldy = document.getElementsByName('worldy');
 		var namedHuman = document.getElementsByName('human');
 		var namedLight = document.getElementsByName('light');
+
+		console.log(namedWorldy, namedHuman, namedLight);
 
 		var checkedWorldy = '';
 		for (var i = 0; i < namedWorldy.length; i++) {
@@ -269,27 +294,18 @@ podApp.init = function() {
 		checkedHuman = checkedHuman.replace(/\s/g, '');
 		checkedLight = checkedLight.replace(/\s/g, '');
 
-		podApp.getWorldy(checkedWorldy);
-		podApp.getHuman(checkedHuman);
-		podApp.getLight(checkedLight);
+		// podApp.getWorldy(checkedWorldy);
+		// podApp.getHuman(checkedHuman);
+		// podApp.getLight(checkedLight);
 
-		// $.when(podApp.getWorldy)
-		// 	.done(function(worldy){
-		// 		console.log(worldy);
-		// 		// console.log(human);
-		// 		// console.log(light);
-		// 		// podApp.displayWorldy(worldy);
-		// 		// podApp.displayHuman(human);
-		// 		// podApp.displayLight(light);
-		// 	});
+		$.when(podApp.getWorldy(checkedWorldy), podApp.getHuman(checkedHuman), podApp.getLight(checkedLight)).done(function(world, human, light){
+			// console.log(world[0]);
+			// console.log(human[0]);
+			// console.log(light[0]);
+			podApp.displayWorldy(world[0]);
+			podApp.displayHuman(human[0]);
+			podApp.displayLight(light[0]);
 
-
-		// $('#podcasts').append(`<h2>Podcasts about ${searchTerm}</h2>`)
-	}); // start form event listener
-
-	$('.submit-form').on('click', function() {
-		$('.please-wait').fadeIn();
-		setTimeout(function(){ 
 			$('.please-wait p').fadeOut();
 			setTimeout(function(){
 				$('.please-wait').html(`<a href=#results class="lets-doit">Let's Do It!</a>`);
@@ -297,6 +313,23 @@ podApp.init = function() {
 					$('.please-wait').fadeOut();
 				});
 			}, 1000)
+
+			$('.podcasts').show();
+			// console.log(podApp.timeTotal);
+			// var realTime = function(time) {
+			// 	var minutes = Math.floor(time/60);
+			// 	var seconds = (time - minutes * 60);
+			// 	$('.totalTotal').html(`${minutes}:${seconds}`);
+			// }
+			// realTime(podApp.timeTotal);
+
+		})
+
+	}); // start form event listener
+
+	$('.submit-form').on('click', function() {
+		$('.please-wait').fadeIn();
+		setTimeout(function(){ 
 		}, 4000)
 	});
 
@@ -306,36 +339,3 @@ podApp.init = function() {
 $(function() {
 	podApp.init();
 });
-
-
-
-// TO DO: 
-// Trends over certain amount of years 
-// Only 10 returns at once? Any more? {No, more is possible]
-// Search term and return {DONE}
-// Display the quote underneath as well 
-// Takes the time as a parameter and gives back podcasts that equal that {DONE}
-// Drop down options
-
-//requiredObject=audio
-
-//Choose a few human topics: 
-//Invisibilia(human behavior), The New Middle(middle class), Hidden Brain(human behavior), YouthRadio (youth's perspective), Social Entrepreneurs:...(social entrepreneurs), storycorps (everyday stories), Race (race), Religion (religion), Humans
-//or enter a specific topic
-//Choose a few light topics: 
-//Strange News, Story of the Day, Food, Pop Culture, Sports, Television, Theater, Animals, Brain Candy
-//or enter a specific topic
-
-// Three part sandwich with worldy, human, light given in a chunk of time 10, 20, 30, 40, 50, 60
-// Worldy topics are date dependent. Human topics are by relevance. Light topics by relevance. 
-// Post the title and the summary and the quote 
-// Can refresh on topic if you don't like it 
-
-// 10 minutes: 2-4 minutes each story
-// 20 minutes: 5-7 minutes each chunk
-// 30 minutes: 10 minutes each chunk 
-// 40 minutes: 13 minutes each chunk 
-// 50 minutes: 20 minutes, 20 minutes, 10 minutes
-// 60 minutes: 20 minutes, 30 minutes, 10 minutes
-
-// call three different times heavy, human, light. Take those results and filter based on duration.
