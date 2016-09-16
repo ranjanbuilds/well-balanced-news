@@ -24,30 +24,30 @@ div.pod-container {
 }
 
 .introduction {
-	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(balancedFood1.jpeg);
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(assets/images/balancedFood1.jpeg);
 	background-size: cover;
 }
 
 .walk {
-	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(walk1.jpeg);
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(assets/images/walk1.jpeg);
 	background-size: cover;
 	background-position: bottom right;
 }
 
 .global_topics {
-	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(global1.jpeg);
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(assets/images/global1.jpeg);
 	background-size: cover;
 	background-position: bottom right;
 }
 
 .human_topics {
-	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(human1.jpeg);
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(assets/images/human1.jpeg);
 	background-size: cover;
 	background-position: bottom right;
 }
 
 .light_topics {
-	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(light1.jpeg);
+	background: linear-gradient(rgba(52, 152, 219, .8),rgba(52, 152, 219, .8)), url(assets/images/light1.jpeg);
 	background-size: cover;
 	background-position: bottom right;
 }

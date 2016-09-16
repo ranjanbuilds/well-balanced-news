@@ -1,0 +1,2 @@
+# Well Balanced News
+‘Well-Balanced News’ aims to give the user a ‘balanced-diet’ of audio news for their walk home. I’m a big fan of National Public Radio and was excited to find they have an extremely well developed API. Well-Balanced News makes three API calls per submission based on the user’s preferences. It utilizes promises and the jQuery library. Check it out here http://www.ranjan.ca/wb-news/. 
